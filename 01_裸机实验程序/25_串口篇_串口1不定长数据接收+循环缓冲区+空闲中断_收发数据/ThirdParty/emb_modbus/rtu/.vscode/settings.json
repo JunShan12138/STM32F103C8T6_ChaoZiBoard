@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "mb_crc.h": "c",
+        "stdint.h": "c"
+    }
+}
