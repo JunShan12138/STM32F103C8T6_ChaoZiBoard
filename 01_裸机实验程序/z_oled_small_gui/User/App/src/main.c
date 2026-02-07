@@ -6,13 +6,30 @@
 
 int main(void)
 {
+    GUI_BOOL ret;
+    
     bsp_init();
     
     gui_init();
+    
+    ret = gui_read_point(10, 10);
 
     gui_set_point(10, 10);
 
     gui_refresh();
+    
+    ret = gui_read_point(10, 10);
+    
+    gui_clear_point(10, 10);
+
+    gui_refresh();
+    
+    ret = gui_read_point(10, 10);
+    
+    if (ret)
+    {
+        gui_refresh();
+    }
     
     // OLED_ShowString(0,0,"∑Á…»øÿ÷∆             ",OLED_8X16);
 	// OLED_ShowString(0,16,"AD                  ",OLED_8X16);
