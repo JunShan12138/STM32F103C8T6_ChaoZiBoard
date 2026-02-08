@@ -13,6 +13,7 @@
 ".\objects\bsp_oled_data.o"
 ".\objects\small_gui_base.o"
 ".\objects\small_gui_menu.o"
+".\objects\small_gui_graphics.o"
 ".\objects\startup_stm32f103xb.o"
 ".\objects\stm32f1xx_hal.o"
 ".\objects\stm32f1xx_hal_adc.o"

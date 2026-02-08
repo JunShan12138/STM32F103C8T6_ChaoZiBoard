@@ -30,6 +30,8 @@ void OLED_UpdateArea(int16_t X, int16_t Y, uint8_t Width, uint8_t Height);
 /*ÏÔ´æ¿ØÖÆº¯Êý*/
 void OLED_Clear(void);
 void OLED_ClearArea(int16_t X, int16_t Y, uint8_t Width, uint8_t Height);
+void OLED_Set(void);
+void OLED_SetArea(int16_t X, int16_t Y, uint8_t Width, uint8_t Height);
 void OLED_Reverse(void);
 void OLED_ReverseArea(int16_t X, int16_t Y, uint8_t Width, uint8_t Height);
 

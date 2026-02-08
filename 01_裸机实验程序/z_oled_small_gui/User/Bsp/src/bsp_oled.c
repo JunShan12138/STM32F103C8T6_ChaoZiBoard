@@ -490,6 +490,18 @@ void OLED_Clear(void)
 	}
 }
 
+void OLED_Set(void)
+{
+	uint8_t i, j;
+	for (j = 0; j < 8; j ++)				//遍历8页
+	{
+		for (i = 0; i < 128; i ++)			//遍历128列
+		{
+			OLED_DisplayBuf[j][i] = 0xFF;	//将显存数组数据全部清零
+		}
+	}
+}
+
 /**
   * 函    数：将OLED显存数组部分清零
   * 参    数：X 指定区域左上角的横坐标，范围：-32768~32767，屏幕区域：0~127
@@ -510,6 +522,22 @@ void OLED_ClearArea(int16_t X, int16_t Y, uint8_t Width, uint8_t Height)
 			if (i >= 0 && i <= 127 && j >=0 && j <= 63)				//超出屏幕的内容不显示
 			{
 				OLED_DisplayBuf[j / 8][i] &= ~(0x01 << (j % 8));	//将显存数组指定数据清零
+			}
+		}
+	}
+}
+
+void OLED_SetArea(int16_t X, int16_t Y, uint8_t Width, uint8_t Height)
+{
+	int16_t i, j;
+	
+	for (j = Y; j < Y + Height; j ++)		//遍历指定页
+	{
+		for (i = X; i < X + Width; i ++)	//遍历指定列
+		{
+			if (i >= 0 && i <= 127 && j >=0 && j <= 63)				//超出屏幕的内容不显示
+			{
+				OLED_DisplayBuf[j / 8][i] |= (0x01 << (j % 8));	//将显存数组指定数据清零
 			}
 		}
 	}
@@ -557,6 +585,8 @@ void OLED_ReverseArea(int16_t X, int16_t Y, uint8_t Width, uint8_t Height)
 		}
 	}
 }
+
+
 
 /**
   * 函    数：OLED显示一个字符
