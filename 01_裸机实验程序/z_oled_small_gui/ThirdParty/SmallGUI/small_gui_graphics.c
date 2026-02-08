@@ -252,9 +252,9 @@ uint8_t gui_pnpoly(uint8_t nvert, GUI_INT32 *vertx, GUI_INT32 *verty, GUI_INT32 
  * @return  无
  */
 void gui_draw_triangle(GUI_INT32 x0, GUI_INT32 y0, 
-                    GUI_INT32 x1, GUI_INT32 y1, 
-                    GUI_INT32 x2, GUI_INT32 y2, 
-                    GUI_BOOL is_fill, GUI_MODE type)
+                       GUI_INT32 x1, GUI_INT32 y1, 
+                       GUI_INT32 x2, GUI_INT32 y2, 
+                       GUI_BOOL is_fill, GUI_MODE type)
 {
     GUI_INT32 minx = x0, miny = y0, maxx = x0, maxy = y0;
     GUI_INT32 i, j;
@@ -401,8 +401,8 @@ void gui_draw_circle(GUI_INT32 x, GUI_INT32 y,
  * @return  无
  */
 void gui_draw_ellipse(GUI_INT32 x, GUI_INT32 y, 
-                    GUI_INT32 a, GUI_INT32 b, 
-                    GUI_BOOL is_fill, GUI_MODE type)
+                      GUI_INT32 a, GUI_INT32 b, 
+                      GUI_BOOL is_fill, GUI_MODE type)
 {
     GUI_INT32 x_t, y_t, j;
     GUI_INT32 a_t = a, b_t = b;
@@ -535,22 +535,6 @@ GUI_BOOL gui_is_in_angle(GUI_INT32 X, GUI_INT32 Y, GUI_INT32 start_angle, GUI_IN
     return GUI_FALSE;  
 }
 
-/**
- * 函    数：OLED画圆弧
- * 参    数：X 指定圆弧的圆心横坐标，范围：-32768~32767，屏幕区域：0~127
- * 参    数：Y 指定圆弧的圆心纵坐标，范围：-32768~32767，屏幕区域：0~63
- * 参    数：Radius 指定圆弧的半径，范围：0~255
- * 参    数：StartAngle 指定圆弧的起始角度，范围：-180~180
- *           水平向右为0度，水平向左为180度或-180度，下方为正数，上方为负数，顺时针旋转
- * 参    数：EndAngle 指定圆弧的终止角度，范围：-180~180
- *           水平向右为0度，水平向左为180度或-180度，下方为正数，上方为负数，顺时针旋转
- * 参    数：IsFilled 指定圆弧是否填充，填充后为扇形
- *           范围：OLED_UNFILLED		不填充
- *                 OLED_FILLED			填充
- * 返 回 值：无
- * 说    明：调用此函数后，要想真正地呈现在屏幕上，还需调用更新函数
- */
-
 /***************************************************************************************************
  * @fn      gui_draw_arc
  *
@@ -575,7 +559,6 @@ void gui_draw_arc(GUI_INT32 x, GUI_INT32 y,
     int16_t x_t, y_t, d, j;
     
     /* 此函数借用Bresenham算法画圆的方法 */
-    
     d = 1 - radius;
     x_t = 0;
     y_t = radius;
