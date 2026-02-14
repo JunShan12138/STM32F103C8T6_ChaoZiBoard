@@ -3,7 +3,6 @@
 
 #include "small_gui_type.h"
 
-#define MENU_ARR_SIZE(__ARRAY)    ((sizeof(__ARRAY)) / (sizeof(__ARRAY[0])))
 
 /* 有限状态机的各种状态 */
 typedef enum

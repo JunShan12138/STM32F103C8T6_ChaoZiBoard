@@ -586,7 +586,7 @@ void OLED_ReverseArea(int16_t X, int16_t Y, uint8_t Width, uint8_t Height)
 	}
 }
 
-
+#if OLED_USE_FONT  
 
 /**
   * 函    数：OLED显示一个字符
@@ -612,6 +612,10 @@ void OLED_ShowChar(int16_t X, int16_t Y, char Char, uint8_t FontSize)
 		OLED_ShowImage(X, Y, 6, 8, OLED_F6x8[Char - ' ']);
 	}
 }
+#endif
+
+
+#if OLED_USE_FONT
 
 /**
   * 函    数：OLED显示字符串（支持ASCII码和中文混合写入）
@@ -738,6 +742,9 @@ void OLED_ShowString(int16_t X, int16_t Y, char *String, uint8_t FontSize)
 		}
 	}
 }
+#endif
+
+#if OLED_USE_FONT 
 
 /**
   * 函    数：OLED显示数字（十进制，正整数）
@@ -762,6 +769,7 @@ void OLED_ShowNum(int16_t X, int16_t Y, uint32_t Number, uint8_t Length, uint8_t
 		OLED_ShowChar(X + i * FontSize, Y, Number / OLED_Pow(10, Length - i - 1) % 10 + '0', FontSize);
 	}
 }
+
 
 /**
   * 函    数：OLED显示有符号数字（十进制，整数）
@@ -903,6 +911,8 @@ void OLED_ShowFloatNum(int16_t X, int16_t Y, double Number, uint8_t IntLength, u
 	OLED_ShowNum(X + (IntLength + 2) * FontSize, Y, FraNum, FraLength, FontSize);
 }
 
+#endif
+
 /**
   * 函    数：OLED显示图像
   * 参    数：X 指定图像左上角的横坐标，范围：-32768~32767，屏幕区域：0~127
@@ -955,6 +965,8 @@ void OLED_ShowImage(int16_t X, int16_t Y, uint8_t Width, uint8_t Height, const u
 	}
 }
 
+#if OLED_USE_FONT
+
 /**
   * 函    数：OLED使用printf函数打印格式化字符串（支持ASCII码和中文混合写入）
   * 参    数：X 指定格式化字符串左上角的横坐标，范围：-32768~32767，屏幕区域：0~127
@@ -980,6 +992,8 @@ void OLED_Printf(int16_t X, int16_t Y, uint8_t FontSize, char *format, ...)
 	va_end(arg);							//结束变量arg
 	OLED_ShowString(X, Y, String, FontSize);//OLED显示字符数组（字符串）
 }
+
+#endif
 
 /**
   * 函    数：OLED在指定位置画一个点

@@ -507,12 +507,12 @@ void gui_draw_ellipse(GUI_INT32 x, GUI_INT32 y,
  *           水平向右为0度，水平向左为180度或-180度，下方为正数，上方为负数，顺时针旋转
  * 返 回 值：指定点是否在指定角度内部，1：在内部，0：不在内部
  */
-GUI_BOOL gui_is_in_angle(GUI_INT32 X, GUI_INT32 Y, GUI_INT32 start_angle, GUI_INT32 end_angle)
+GUI_BOOL gui_is_in_angle(GUI_INT32 x, GUI_INT32 y, GUI_INT32 start_angle, GUI_INT32 end_angle)
 {
     GUI_INT32 point_angle;
 
     /* 计算指定点的弧度，并转换为角度表示 */
-    point_angle = atan2(Y, X) / 3.14 * 180;	
+    point_angle = atan2(y, x) / 3.14 * 180;	
 
     if (start_angle < end_angle)  /* 起始角度小于终止角度的情况 */
     {
@@ -553,8 +553,8 @@ GUI_BOOL gui_is_in_angle(GUI_INT32 X, GUI_INT32 Y, GUI_INT32 start_angle, GUI_IN
  * @return  无
  */
 void gui_draw_arc(GUI_INT32 x, GUI_INT32 y, 
-                GUI_INT32 radius, GUI_INT32 start_angle,
-                GUI_INT32 end_angle,  GUI_BOOL is_fill, GUI_MODE type)
+                  GUI_INT32 radius, GUI_INT32 start_angle,
+                  GUI_INT32 end_angle,  GUI_BOOL is_fill, GUI_MODE type)
 {
     int16_t x_t, y_t, d, j;
     

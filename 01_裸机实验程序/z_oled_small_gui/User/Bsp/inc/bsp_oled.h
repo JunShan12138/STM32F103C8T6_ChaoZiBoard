@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
+#define OLED_USE_FONT   (0)
+
 
 /*参数宏定义*********************/
 

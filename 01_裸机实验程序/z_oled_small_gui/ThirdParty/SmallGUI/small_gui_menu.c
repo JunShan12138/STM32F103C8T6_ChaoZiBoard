@@ -10,7 +10,7 @@ menu_item_t _draw_point_menu_items[] =
 gui_menu_t _draw_point_menu = 
 {
     (menu_item_t *)_draw_point_menu_items,
-    MENU_ARR_SIZE(_draw_point_menu_items),
+    GUI_ARR_SIZE(_draw_point_menu_items),
     NULL,
     0
 };
